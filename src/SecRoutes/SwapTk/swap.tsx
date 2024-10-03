@@ -122,7 +122,7 @@ const Swap: React.FC<ExchangeProps> = ({ autoIncrement, userId }) => {
   }, [userId]);
 
   const calculateTotalValue = (levels: number[]) => {
-    return levels.reduce((acc, level) => acc + (level > 2 ? 1 : 0), 0);
+    return levels.reduce((acc, level) => acc + (level > 1 ? 1 : 0), 0);
   };
   const totalValue = calculateTotalValue(upgradeLevels);
 
