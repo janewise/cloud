@@ -1,0 +1,96 @@
+
+.swapbalance {
+    display: flex;
+    align-items: center;
+   justify-content: center;
+    min-height: 2.5rem;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.274);
+    padding: 0 5px 0;
+    border-radius: 8px;
+    margin-bottom: 3rem;
+  }
+
+.swap{
+    margin-top: 7rem;
+}
+
+.exbox1{
+display: flex;
+justify-content:center;
+width: 100%;
+margin-bottom: 0.5rem;
+}
+
+.exin1{
+    width: 230px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(68, 68, 68);
+    outline: none;          /* Remove outline */
+}
+
+.exin2{
+    height: 40px;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(68, 68, 68);
+}
+
+/*  */
+.exbox2{
+    display: flex;
+    justify-content:center;
+    width:100%;
+    margin-bottom: 0.5rem;
+}
+.exin2, .exin3, .exin4, .exin5, .exin6 {
+    border:     1px solid black;    
+    outline: none;           /* Remove outline */
+    cursor: pointer;         /* Add pointer cursor */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.exin3{
+    width: 85px;
+        font-weight: 500;
+        color: rgb(68, 68, 68);
+        
+}
+.exin4{
+        width: 100px;
+        font-size: 18px;
+        font-weight: 500;
+        color: rgb(68, 68, 68);
+        margin: 0 5px;
+}
+.exin5{
+    width: 85px;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(68, 68, 68);
+}    
+
+.exin6{
+        padding: 5px 10px;
+        border: 1px solid rgba(211, 211, 211, 0.6);
+        border-radius: 5px;
+        font-size: 17px;
+        font-weight: 500;
+        margin-bottom:1rem;
+        width: 270px;
+        text-align: center;
+}    
+
+/* Clickable Button Style */
+.clickable {
+    background-color: rgb(3, 99, 3);
+    color: white;
+}
+
+/* Unclickable Button Style */
+.unclickable {
+    background-color: white;
+    color: rgb(68, 68, 68);
+}

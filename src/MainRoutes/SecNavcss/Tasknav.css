@@ -1,0 +1,45 @@
+.tasksec_nav {
+  position: absolute;
+  top: 2rem;
+}
+
+.tasksec_nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  min-width: 300px;
+  border-bottom: 2px solid white;
+}
+
+.taskseclink {
+  width: 99%;
+  height: 99%;
+  text-decoration: none;
+  color: #fff;
+}
+
+.tasksec_nav ul li {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.longtaskbar{
+  width: 85px;
+}
+.shorttaskbar{
+  width: 60px;
+}
+
+.taskseclink.active {
+  border-bottom: 1px solid #fbff00;
+  letter-spacing: 2px;
+  color: gold;
+}

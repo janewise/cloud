@@ -1,0 +1,83 @@
+/* custom overlay */
+.overlay{
+  position:relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+hr{
+  margin: 5px 0 5px 0;
+}
+
+.logoImg{
+  width: 320px;
+  border: 2px solid rgba(255, 255, 255, 0);
+  margin-top: 5%;
+}
+
+.logoImg:hover{
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0);
+}
+
+/* routerchange 1*/
+.center{
+ padding: 0rem 0 3rem 0 !important;
+ min-height: 80vh;
+ margin-top: 8rem;
+ background-color: rgba(19, 19, 19, 0.6);
+ padding-top: 1rem !important;
+ border-radius: 20px 20px 0 0;
+}
+
+.centerleader{
+  padding: 0rem 0 2rem 0 !important;
+ min-height: 80vh;
+ background-color: rgba(19, 19, 19, 0.6);
+ padding-top: 1rem !important;
+ border-radius: 20px 20px 0 0;
+}
+
+
+@-webkit-keyframes fadeIn {
+  from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* costom booster div */
+/* routerchange 2*/
+.booster{
+  padding: 0 0 2.8rem 0;
+}
+/* routerchange 3*/
+.Task{
+  padding: 6rem 0 2rem 0;
+}
+/* routerchange 4*/
+.booster h2{
+  border-top: 2px dotted rgba(172, 172, 172, 0.244);
+    margin-bottom: 1.2rem;
+    padding-top: 1rem;
+  }
+  /* routerchange 5*/
+  .Task h2{
+      margin-bottom: 2.4rem;
+      padding-top: 1.2rem;
+      font-size: 1rem;
+    }
+
+.Ref_box{
+  border-top: 2px dotted rgba(172, 172, 172, 0.244);
+  padding-bottom: 2.4rem;
+  padding-top: 1.5rem;
+} 
+
+/* custom overlay */

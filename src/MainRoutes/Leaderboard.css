@@ -1,0 +1,70 @@
+
+
+.leaderboard {
+    border: 1px solid #cccccc00;
+    max-width: 100%;
+    overflow: hidden;
+    background-color: #6a6a6a46;
+    margin-bottom:20px;
+    padding-bottom: 10px;
+  }
+  
+  .leaderboard h1 {
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  .leaderboard table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .leaderboard th {
+    border: 1px solid #636363;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .leaderboard td {
+    border-bottom: 1px solid #6363638a;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .leaderboard th {
+    background-color: #565656;
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  .leaderboard tbody {
+    display: block;
+    max-height: 450px;
+    overflow-y: auto;
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  }
+  
+  .leaderboard tbody::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+  }
+  
+  .leaderboard tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  .leaderboard thead,
+  .leaderboard tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  .highlight {
+    background-color: rgba(121, 121, 121, 0.7); /* Example highlight color */
+  }
+  
