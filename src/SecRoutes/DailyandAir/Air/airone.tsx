@@ -86,7 +86,7 @@ const Airone: React.FC<AironeProps> = ({
           ✔️
         </button>
       );
-    } else if (clickUpgradeLevel === 19) {
+    } else if (clickUpgradeLevel > 3) {
       switch (taskState) {
         case "go":
           return (
