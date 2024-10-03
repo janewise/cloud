@@ -51,6 +51,16 @@ const Airtwo: React.FC<AirtwoProps> = ({
           data.refClicker10 || 0,
           data.refClicker11 || 0,
           data.refClicker12 || 0,
+          data.refClicker13 || 0,
+          data.refClicker14 || 0,
+          data.adsClicker01 || 0,
+          data.adsClicker02 || 0,
+          data.adsClicker03 || 0,
+          data.adsClicker04 || 0,
+          data.adsClicker05 || 0,
+          data.adsClicker06 || 0,
+          data.adsClicker07 || 0,
+          data.adsClicker08 || 0,
         ];
         setUpgradeLevels(levels);
       });
@@ -58,7 +68,7 @@ const Airtwo: React.FC<AirtwoProps> = ({
   }, [userId]);
 
   const calculateTotalValue = (levels: number[]) => {
-    return levels.reduce((acc, level) => acc + (level > 4 ? 1 : 0), 0);
+    return levels.reduce((acc, level) => acc + (level > 2 ? 1 : 0), 0);
   };
 
   useEffect(() => {
@@ -150,7 +160,7 @@ const Airtwo: React.FC<AirtwoProps> = ({
     <div className="task-box">
       <span className="taskspan">
         <p className="taskp">
-          <span>Upgrade 18 Cards to Lv5 (100k)</span>
+          <span>Upgrade 3 Cards to Lv2 (100k)</span>
           <span>{renderButton()}</span>
         </p>
       </span>

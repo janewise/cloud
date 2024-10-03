@@ -1,93 +1,3 @@
-// // export default Exchange;
-// import React, { useState } from "react";
-// import { sendExchangeAmountToFirebase } from "../../firebaseFunctions"; // Import your Firebase function
-// import "./exchange.css";
-
-// interface ExchangeProps {
-//   autoIncrement: number;
-//   userId: string | null; // Add userId prop to identify the user in Firebase
-// }
-
-// const Exchange: React.FC<ExchangeProps> = ({ autoIncrement, userId }) => {
-//   const [inputValue, setInputValue] = useState<number>(0); // Start with 0
-//   const [error, setError] = useState<string | null>(null); // State for error message
-//   const [success, setSuccess] = useState<boolean>(false); // State for success feedback
-
-//   const handlePlus = () => {
-//     setInputValue((prevValue) =>
-//       Math.min(prevValue + 500, Math.floor(autoIncrement * 3600))
-//     );
-//   };
-
-//   const handleMinus = () => {
-//     setInputValue((prevValue) => Math.max(prevValue - 500, 0));
-//   };
-
-//   const handleMax = () => {
-//     setInputValue(Math.floor(autoIncrement * 3600));
-//   };
-
-//   const handleCancel = () => {
-//     setInputValue(0); // Reset input value to 0
-//   };
-
-//   const handleExchange = () => {
-//     if (inputValue > autoIncrement * 3600) {
-//       setError("Input value exceeds the current autoIncrement");
-//       return;
-//     }
-
-//     if (userId) {
-//       sendExchangeAmountToFirebase(userId, inputValue);
-//       setInputValue(0); // Reset the input after a successful exchange
-//       setSuccess(true); // Set success feedback
-//       setError(null); // Clear any previous error
-//     } else {
-//       setError("User ID is not available.");
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h3>Exchange AutoIncrement</h3>
-//       <div>
-//         {/*  */}
-//         <div   className="exbox1">
-//           <input
-//           className="exin1"
-//             type="text"
-//             value={inputValue.toFixed(1)} // Display value to 1 decimal place
-//             readOnly
-//           />{" "}
-//           <button className="exin2"  onClick={handleMax}>Max</button>
-//         </div>
-//         {/*  */}
-//         <div className="exbox2">
-//           <button className="exin3" onClick={handleMinus} disabled={inputValue <= 0}>
-//             -
-//           </button>
-//           <button className="exin4" onClick={handleCancel}>Cancel</button>
-//           <button
-//                className="exin5"
-//             onClick={handlePlus}
-//             disabled={inputValue >= autoIncrement * 3600}
-//           >
-//             +
-//           </button>
-//         </div>
-//         {/*  */}
-//         <button className="exin6" onClick={handleExchange} disabled={inputValue <= 0}>
-//           Exchange
-//         </button>
-//       </div>
-//       {error && <p style={{ color: "red" }}>{error}</p>}
-//       {success && !error && (
-//         <p style={{ color: "green" }}>Exchange successful!</p>
-//       )}
-//     </div>
-//   );
-// };
-
 // export default Exchange;
 import React, { useState, useEffect } from "react";
 import { sendExchangeAmountToFirebase } from "../../firebaseFunctions"; // Import your Firebase function
@@ -195,6 +105,16 @@ const Swap: React.FC<ExchangeProps> = ({ autoIncrement, userId }) => {
           data.refClicker10 || 0,
           data.refClicker11 || 0,
           data.refClicker12 || 0,
+          data.refClicker13 || 0,
+          data.refClicker14 || 0,
+          data.adsClicker01 || 0,
+          data.adsClicker02 || 0,
+          data.adsClicker03 || 0,
+          data.adsClicker04 || 0,
+          data.adsClicker05 || 0,
+          data.adsClicker06 || 0,
+          data.adsClicker07 || 0,
+          data.adsClicker08 || 0,
         ];
         setUpgradeLevels(levels);
       });
@@ -202,7 +122,7 @@ const Swap: React.FC<ExchangeProps> = ({ autoIncrement, userId }) => {
   }, [userId]);
 
   const calculateTotalValue = (levels: number[]) => {
-    return levels.reduce((acc, level) => acc + (level > 4 ? 1 : 0), 0);
+    return levels.reduce((acc, level) => acc + (level > 2 ? 1 : 0), 0);
   };
   const totalValue = calculateTotalValue(upgradeLevels);
 
@@ -255,14 +175,14 @@ const Swap: React.FC<ExchangeProps> = ({ autoIncrement, userId }) => {
       </p>
 
       {/* Show a message if the user has not passed the airdrop */}
-      {clickUpgradeLevel <= 18 && totalValue <= 18 && (
+      {clickUpgradeLevel <= 3 && totalValue <= 1 && (
         <p className="update-message">
           To exchange MYG tokens, you must level up Tab Booster level 19 and 18
           Cards to level 5.
         </p>
       )}
 
-      {clickUpgradeLevel > 18 && totalValue > 18 && (
+      {clickUpgradeLevel > 3 && totalValue > 2 && (
         <div className="exchange">
           <div className="exbox1">
             <input
@@ -330,23 +250,3 @@ const Swap: React.FC<ExchangeProps> = ({ autoIncrement, userId }) => {
 };
 
 export default Swap;
-
-// const handleExchange = () => {
-//   // Calculate how many tokens can be exchanged
-//   const tokens = Math.floor(inputValue / exchangeRate); // Determine number of tokens
-//   const exchangeAmount = tokens * exchangeRate; // Calculate the actual amount to exchange
-
-//   if (inputValue > maxExchangeValue) {
-//     setError("Input value exceeds the current autoIncrement");
-//     return;
-//   }
-
-//   if (tokens > 0 && userId) {
-//     sendExchangeTokenToFirebase(userId, tokens); // Call renamed function
-//     setInputValue(0); // Reset the input after a successful exchange
-//     setSuccess(true); // Set success feedback
-//     setError(null); // Clear any previous error
-//   } else {
-//     setError("User ID is not available or no valid exchange amount.");
-//   }
-// };

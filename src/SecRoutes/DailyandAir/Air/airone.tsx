@@ -128,7 +128,7 @@ const Airone: React.FC<AironeProps> = ({
     <div className="task-box">
       <span className="taskspan">
         <p className="taskp">
-          <span>Need to upgrade Tapbooster to level 19 (100K)</span>
+          <span>Need to upgrade Tapbooster to level 4 (100K)</span>
           <span>{renderButton()}</span>
         </p>
       </span>
