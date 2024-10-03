@@ -398,11 +398,6 @@ const [totalExchange, setTotalExchange] = useState<number>(0); // State for tota
       setMaxEnergy(parseInt(storedMaxEnergy, 10));
       setRefillRate(storedRefillRateNum);
       setLastUpdated(Date.now());
-
-//dowm is for autoincrement time on offline
-    // const storedAutoIncrementNum = parseFloat(storedAutoIncrement);
-    //  const calculatedBalance = parseFloat(storedBalance) + Math.min(storedAutoIncrementNum * timePassed, storedAutoIncrementNum * 7200);
-    //  balanceRef.current.value = Math.round(calculatedBalance * 100) / 100;
      }
     setIsInitialLoad(false); // Set initial load flag to false after loading from localStorage
   }, []);
@@ -414,10 +409,6 @@ const [totalExchange, setTotalExchange] = useState<number>(0); // State for tota
       localStorage.setItem('maxEnergy', maxEnergy.toString());
       localStorage.setItem('refillRate', refillRate.toString());
       localStorage.setItem('lastUpdated', lastUpdated.toString());
- //down is auto increment
-      // localStorage.setItem('balance', balanceRef.current.value.toString());
-      // localStorage.setItem('autoIncrement', autoIncrement.toString());
-
     }
   }, [energy, maxEnergy, refillRate, lastUpdated, isInitialLoad]);
   useEffect(() => {

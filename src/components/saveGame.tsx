@@ -665,7 +665,7 @@ export function SaveGame(props: {
       }
 
       setIsDataLoaded(true); // Mark data as loaded
-      alert("game load save.tsx");
+     // alert("game load save.tsx");
     } else {
       console.error("Cannot load data: userId is null.");
       alert("Cannot load data: userId is null.");
