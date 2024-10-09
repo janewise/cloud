@@ -28,7 +28,7 @@ export function ImageUpload({ telegramUserId }: ImageUploadProps) {
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const selectedImages = Array.from(e.target.files);
-      if (selectedImages.length > 2) {
+      if (selectedImages.length > 1) {
         alert("You can only upload a maximum of 2 images.");
         return;
       }
@@ -38,8 +38,8 @@ export function ImageUpload({ telegramUserId }: ImageUploadProps) {
   };
 
   const handleUpload = async () => {
-    if (images.length < 2) {
-      alert("Please upload at least 2 images.");
+    if (images.length < 3) {
+      alert("Please upload at least 3 images.");
       return;
     }
 
@@ -118,7 +118,7 @@ export function ImageUpload({ telegramUserId }: ImageUploadProps) {
             onChange={handleImageChange}
             disabled={isUploading}
             ref={fileInputRef}
-            className="hidden-input" // Hidden input styling
+            // className="hidden-input" // Hidden input styling
           />
 
           {/* Custom button or SVG to trigger file input */}
