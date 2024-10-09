@@ -74,9 +74,6 @@
     align-items:center;
 }
 
-.upload button{
-    margin-top: 1rem;
-}
 
 .hidden-input {
     display: none;
@@ -102,3 +99,17 @@
     vertical-align: middle;
   }
   
+  .custom-upload-submit{
+    background-color:rgb(11, 81, 204);
+    font-size: 18px;
+    padding: 4px 30px;
+    font-weight: 500;
+    border-radius: 5px;
+    margin-top: 3rem;
+  }
+
+  .custom-upload-pending{
+font-size: 24px;
+font-weight: 500;
+color:rgba(226, 224, 63, 0.942);
+  }
