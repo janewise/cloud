@@ -28,7 +28,7 @@ export function ImageUpload({ telegramUserId }: ImageUploadProps) {
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const selectedImages = Array.from(e.target.files);
-      if (selectedImages.length > 1) {
+      if (selectedImages.length > 2) {
         alert("You can only upload a maximum of 2 images.");
         return;
       }
@@ -38,8 +38,8 @@ export function ImageUpload({ telegramUserId }: ImageUploadProps) {
   };
 
   const handleUpload = async () => {
-    if (images.length < 3) {
-      alert("Please upload at least 3 images.");
+    if (images.length < 1) {
+      alert("Please upload at least 1 images.");
       return;
     }
 
