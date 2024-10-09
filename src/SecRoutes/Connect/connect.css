@@ -76,16 +76,7 @@
 
 .upload button{
     margin-top: 1rem;
-    background-color: #6c2bdd;
 }
-
-.upload p{
-    font-size: 24px;
-    color: rgb(220, 203, 20);
-    font-weight: 500;
-    margin-bottom: 4rem;
-}
-
 
 .hidden-input {
     display: none;
