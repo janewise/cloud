@@ -1,8 +1,29 @@
 .wallet_nav {
     position: absolute;
-    top: 3rem;
+    top: 4rem;
   }
   
+/* for connect wallet adress */
+.connectwalletnav{
+  text-align: right;
+  padding-top: 0.8rem;
+    }
+  
+    .walletconnect,.walletaddress{
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+    .walletconnect{
+      background-color: rgba(129, 71, 229, 0.8);
+      font-weight: 400;
+      font-size: 18px;
+    }
+    .walletaddress{
+      background-color: rgba(129, 71, 229, 0.2);
+      font-size: 15px;
+    }
+/*  */
+
   .wallet_nav ul {
     display: flex;
     justify-content: space-around;
