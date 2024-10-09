@@ -5,8 +5,10 @@
   
 /* for connect wallet adress */
 .connectwalletnav{
-  text-align: right;
+  /* text-align: right; */
+  position: absolute;
   padding-top: 0.8rem;
+  right: 10px;
     }
   
     .walletconnect,.walletaddress{
