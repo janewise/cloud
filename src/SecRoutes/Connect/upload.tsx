@@ -1,5 +1,5 @@
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef,useEffect } from "react";
 import { ref as storageRef, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { ref as dbRef, update } from "firebase/database";
 import { storage, db } from "../../firebase"; // Import initialized Firebase services
@@ -13,7 +13,17 @@ export function ImageUpload({ telegramUserId }: ImageUploadProps) {
   const [images, setImages] = useState<File[]>([]); // Array of selected images
   const [uploadProgress, setUploadProgress] = useState<number[]>([]);
   const [isUploading, setIsUploading] = useState(false);
-  const [pending, setPending] = useState(false); // Add pending state
+   // const [pending, setPending] = useState(false); // Add pending state
+   const [pending, setPending] = useState<boolean>(() => {
+    // Get pending state from local storage on component mount
+    const storedPending = localStorage.getItem(`pending_${telegramUserId}`);
+    return storedPending ? JSON.parse(storedPending) : false;
+  });
+
+  useEffect(() => {
+    // Save pending state to local storage whenever it changes
+    localStorage.setItem(`pending_${telegramUserId}`, JSON.stringify(pending));
+  }, [pending, telegramUserId]);
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
