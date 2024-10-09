@@ -1,54 +1,42 @@
 
-//05
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { ref as storageRef, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { ref as dbRef, update } from "firebase/database";
 import { storage, db } from "../../firebase"; // Import initialized Firebase services
 import "./connect.css";
 
 type ImageUploadProps = {
-  telegramUserId: string; // Pass in Telegram user ID
+  telegramUserId: string;
 };
 
 export function ImageUpload({ telegramUserId }: ImageUploadProps) {
-  const [images, setImages] = useState<File[]>([]);
+  const [images, setImages] = useState<File[]>([]); // Array of selected images
   const [uploadProgress, setUploadProgress] = useState<number[]>([]);
   const [isUploading, setIsUploading] = useState(false);
-  const [pending, setPending] = useState<boolean>(() => {
-    const storedPending = localStorage.getItem(`pending_${telegramUserId}`);
-    return storedPending ? JSON.parse(storedPending) : false;
-  });
+  const [pending, setPending] = useState(false); // Add pending state
 
-  const fileInputRef = useRef<HTMLInputElement | null>(null); // Reference to the hidden file input
-
-  useEffect(() => {
-    localStorage.setItem(`pending_${telegramUserId}`, JSON.stringify(pending));
-  }, [pending, telegramUserId]);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      const selectedImages = Array.from(e.target.files);
-      if (selectedImages.length > 2) {
-        alert("You can only upload a maximum of 2 images.");
-        return;
-      }
-      setImages(selectedImages);
-      setPending(false);
+      const selectedFiles = Array.from(e.target.files); // Get all selected files
+      setImages((prevImages) => [...prevImages, ...selectedFiles]); // Append new images to the list
     }
   };
 
   const handleUpload = async () => {
-    if (images.length < 1) {
-      alert("Please upload at least 1 images.");
+    if (images.length < 2) {
+      alert("Please upload at least 2 images.");
       return;
     }
 
     setIsUploading(true);
+    setPending(false); // Ensure pending is false when starting upload
+
     const uploadProgressArr: number[] = Array(images.length).fill(0);
 
     const uploadTasks = images.map((image, index) => {
       const imgRef = storageRef(storage, `images/${telegramUserId}/image${index + 1}`);
-
       const uploadTask = uploadBytesResumable(imgRef, image);
 
       return new Promise<void>((resolve, reject) => {
@@ -76,7 +64,7 @@ export function ImageUpload({ telegramUserId }: ImageUploadProps) {
       .then(() => {
         console.log("All uploads completed.");
         setIsUploading(false);
-        setPending(true);
+        setImages([]); // Reset after successful upload
       })
       .catch((error) => {
         console.error("Error in uploading:", error);
@@ -92,17 +80,17 @@ export function ImageUpload({ telegramUserId }: ImageUploadProps) {
       [imageKey]: downloadURL,
       imageverified: false
     });
+
+    setPending(true); // Set pending state to true after uploading
   };
 
   const handleReupload = () => {
-    setPending(false);
-    setUploadProgress([]);
-    setImages([]);
+    setPending(false); // Reset pending state when re-upload is triggered
   };
 
   const triggerFileInput = () => {
     if (fileInputRef.current) {
-      fileInputRef.current.click(); // Trigger the hidden file input
+      fileInputRef.current.click();
     }
   };
 
@@ -110,23 +98,15 @@ export function ImageUpload({ telegramUserId }: ImageUploadProps) {
     <div className="upload">
       {!pending ? (
         <>
-          {/* Hidden file input */}
           <input
             type="file"
-            accept="image/*"
-            multiple
-            onChange={handleImageChange}
-            disabled={isUploading}
             ref={fileInputRef}
-            // className="hidden-input" // Hidden input styling
+            onChange={handleImageChange}
+            accept="image/*"
+            multiple // This allows selecting multiple files
+            style={{ display: "none" }}
           />
-
-          {/* Custom button or SVG to trigger file input */}
-          <button
-            className="custom-upload-button"
-            onClick={triggerFileInput}
-            disabled={isUploading}
-          >
+          <button className="custom-upload-button" onClick={triggerFileInput} disabled={isUploading}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -141,11 +121,16 @@ export function ImageUpload({ telegramUserId }: ImageUploadProps) {
             {isUploading ? "Uploading..." : "Upload Images"}
           </button>
 
-          <button onClick={handleUpload} disabled={isUploading || images.length < 1}  className="custom-upload-submit">
-             {isUploading ? "Uploading..." : "Submit"}
+          {images.length > 0 && (
+            <div>
+              <p>You have selected {images.length} {images.length === 1 ? "image" : "images"}:</p>
+            </div>
+          )}
+
+          <button onClick={handleUpload} disabled={isUploading || images.length < 2} className="custom-upload-submit">
+            {isUploading ? "Uploading..." : "Upload Images"}
           </button>
 
-          {/* Progress display */}
           {uploadProgress.length > 0 && (
             <div>
               {uploadProgress.map((progress, index) => (
@@ -157,7 +142,7 @@ export function ImageUpload({ telegramUserId }: ImageUploadProps) {
       ) : (
         <div>
           <p className="custom-upload-pending">Pending</p>
-          <button onClick={handleReupload} className="custom-upload-submit">Reupload</button>
+          <button onClick={handleReupload}  className="custom-upload-submit">Reupload</button>
         </div>
       )}
     </div>
