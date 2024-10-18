@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Route, Routes, NavLink, Navigate } from "react-router-dom";
 import { SwapMain } from "../SecRoutes/SwapTk/swapmain";
 import { TransferMain } from "../SecRoutes/TransferTk/transfermain";
+import { Claimtk } from "../SecRoutes/Claimtk/claim";
 import { ref, get } from "firebase/database";
 import { db } from "../firebase";
 import "./SecNavcss/walletnav.css";
@@ -80,7 +81,7 @@ export function Wallet() {
             )}
           </div>
 
-          <nav className="wallet_nav">
+          {/* <nav className="wallet_nav">
             <ul>
               <li>
                 <NavLink 
@@ -98,13 +99,23 @@ export function Wallet() {
                  Transfer
                 </NavLink>
               </li>
+               <li>
+                <NavLink 
+                  to="/wallet/claim" 
+                  className={({ isActive }) => isActive ? "minelink active" : "minelink"}
+                >
+                  Swap
+                </NavLink>
+              </li>
             </ul>
-          </nav>
+          </nav> */}
 
           <Routes>
-            <Route path="/" element={<Navigate to="swapmain" />} />
-            <Route path="swapmain" element={<SwapMain />} />
-            <Route path="transfermain" element={<TransferMain />} />
+            <Route path="/" element={<Navigate to="claim" />} />
+            {/* <Route path="swapmain" element={<SwapMain />} />
+            <Route path="transfermain" element={<TransferMain />} /> */}\
+              <Route path="claim" element={<Claimtk />} />
+
           </Routes>
         </div>
       </div>

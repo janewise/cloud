@@ -1,0 +1,32 @@
+.Claim{
+    padding-top: 10rem;
+}
+
+.claimtoken{
+    display: flex;
+    align-items: center;
+   justify-content: center;
+}
+
+.claimnote{
+    width: 280px;
+    background-color: rgba(255, 255, 255, 0.274);
+    padding: 20px;
+    border-radius: 5px;
+    color: rgb(22, 22, 22);
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.claimbutton{
+    background-color: rgba(198, 183, 20, 0.9);
+    color: #fff;
+    padding: 5px 10px;
+    border: 2px solid rgb(38, 36, 36);
+    border-radius: 5px;
+    font-size: 17px;
+    font-weight: 500;
+    margin-top:3rem;
+    width: 270px;
+    text-align: center;
+}
