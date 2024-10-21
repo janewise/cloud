@@ -81,11 +81,11 @@ export function Wallet() {
             )}
           </div>
 
-          {/* <nav className="wallet_nav">
+          <nav className="wallet_nav">
             <ul>
               <li>
                 <NavLink 
-                  to="/wallet/swapmain" 
+                  to="/swapmain" 
                   className={({ isActive }) => isActive ? "minelink active" : "minelink"}
                 >
                   Swap
@@ -93,7 +93,7 @@ export function Wallet() {
               </li>
               <li>
                 <NavLink 
-                  to="/wallet/transfermain" 
+                  to="/transfermain" 
                   className={({ isActive }) => isActive ? "minelink active" : "minelink"}
                 >
                  Transfer
@@ -101,19 +101,19 @@ export function Wallet() {
               </li>
                <li>
                 <NavLink 
-                  to="/wallet/claim" 
+                  to="/claim" 
                   className={({ isActive }) => isActive ? "minelink active" : "minelink"}
                 >
-                  Swap
+                 Claim
                 </NavLink>
               </li>
             </ul>
-          </nav> */}
+          </nav>
 
           <Routes>
-            <Route path="/" element={<Navigate to="claim" />} />
-            {/* <Route path="swapmain" element={<SwapMain />} />
-            <Route path="transfermain" element={<TransferMain />} /> */}\
+            <Route path="/" element={<Navigate to="swapmain" />} />
+            <Route path="swapmain" element={<SwapMain />} />
+            <Route path="transfermain" element={<TransferMain />} />
               <Route path="claim" element={<Claimtk />} />
 
           </Routes>
