@@ -90,7 +90,7 @@ export function Nav() {
           </li>
         </NavLink> */}
         <NavLink
-          to="/claim"
+          to="/"
           className={({ isActive }) => (isActive ? "link active" : "link")}
         >
           <li>
