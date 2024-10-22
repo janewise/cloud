@@ -229,7 +229,7 @@ import "./claim.css";
 export function Claimtk(){
   return(
     <div className="Claim">
-        <div className="claimtoken"> <h2>
+        <div className="claimtoken">  <h2>
         Blah Blah
       </h2></div>
      
