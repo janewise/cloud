@@ -668,7 +668,7 @@ export function SaveGame(props: {
      // alert("game load save.tsx");
     } else {
       console.error("Cannot load data: userId is null.");
-      alert("Cannot load data: userId is null.");
+      // alert("Cannot load data: userId is null.");
     }
   }
 
@@ -720,7 +720,7 @@ export function SaveGame(props: {
       setOpenSnackbar(true);
     } else {
       console.error("Cannot save data: either userId is null or data has not been loaded.");
-      alert("Cannot save data: either userId is null or data has not been loaded.");
+      // alert("Cannot save data: either userId is null or data has not been loaded.");
     }
   }
 

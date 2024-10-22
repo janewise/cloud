@@ -85,7 +85,7 @@ export function Wallet() {
             <ul>
               <li>
                 <NavLink 
-                  to="/swapmain" 
+                  to="/wallet/swapmain" 
                   className={({ isActive }) => isActive ? "minelink active" : "minelink"}
                 >
                   Swap
@@ -93,7 +93,7 @@ export function Wallet() {
               </li>
               <li>
                 <NavLink 
-                  to="/transfermain" 
+                  to="/wallet/transfermain" 
                   className={({ isActive }) => isActive ? "minelink active" : "minelink"}
                 >
                  Transfer
@@ -101,7 +101,7 @@ export function Wallet() {
               </li>
                <li>
                 <NavLink 
-                  to="/claim" 
+                  to="/wallet/claim" 
                   className={({ isActive }) => isActive ? "minelink active" : "minelink"}
                 >
                  Claim
